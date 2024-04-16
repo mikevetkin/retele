@@ -1,6 +1,6 @@
 /**
  * @typedef {import('mdast').Root} Root
- * @typedef {import('mdast-util-to-markdown').Options} ToMarkdownOptions
+ * @typedef {import('mdast-util-to-telegram').Options} ToMarkdownOptions
  * @typedef {import('unified').Compiler<Root, string>} Compiler
  * @typedef {import('unified').Processor<undefined, undefined, undefined, Root, string>} Processor
  */
@@ -9,7 +9,7 @@
  * @typedef {Omit<ToMarkdownOptions, 'extensions'>} Options
  */
 
-import {toMarkdown} from 'mdast-util-to-markdown'
+import {toTelegram} from 'mdast-util-to-telegram'
 
 /**
  * Add support for serializing to markdown.
@@ -19,7 +19,7 @@ import {toMarkdown} from 'mdast-util-to-markdown'
  * @returns {undefined}
  *   Nothing.
  */
-export default function remarkStringify(options) {
+export default function remarkTelegram(options) {
   /** @type {Processor} */
   // @ts-expect-error: TS in JSDoc generates wrong types if `this` is typed regularly.
   const self = this
@@ -30,7 +30,7 @@ export default function remarkStringify(options) {
    * @type {Compiler}
    */
   function compiler(tree) {
-    return toMarkdown(tree, {
+    return toTelegram(tree, {
       ...self.data('settings'),
       ...options,
       // Note: this option is not in the readme.
