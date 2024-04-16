@@ -1,5 +1,5 @@
 {
-  "name": "remark",
+  "name": "retele",
   "private": true,
   "license": "MIT",
   "homepage": "https://remark.js.org",
@@ -14,7 +14,8 @@
     "packages/remark-parse/",
     "packages/remark-stringify/",
     "packages/remark/",
-    "packages/remark-cli/"
+    "packages/remark-cli/",
+    "packages/remark-telegram/"
   ],
   "devDependencies": {
     "@types/mdast": "^4.0.0",
